@@ -24,6 +24,7 @@ This action allows you to automatically upload an Android App Bundle to the Goog
     aab_file_path: "./build/outputs/bundle/release/app-release.aab"
     track: "internal"
     release_status: "draft"
+    release_name: "${{ steps.release_version.outputs.RELEASE_VERSION }} (${{ steps.google-play.outputs.next_version }})"
 ```
 
 ## Usage Examples
@@ -40,6 +41,7 @@ This action allows you to automatically upload an Android App Bundle to the Goog
     aab_file_path: "./build/outputs/bundle/release/app-release.aab"
     track: "internal"
     release_status: "draft"
+    release_name: "${{ steps.release_version.outputs.RELEASE_VERSION }} (${{ steps.google-play.outputs.next_version }})"
 ```
 
 ### Upload an Android App Bundle to the production track with completed status
@@ -54,6 +56,7 @@ This action allows you to automatically upload an Android App Bundle to the Goog
     aab_file_path: "./build/outputs/bundle/release/app-release.aab"
     track: "production"
     release_status: "completed"
+    release_name: "${{ steps.release_version.outputs.RELEASE_VERSION }} (${{ steps.google-play.outputs.next_version }})"
 ```
 
 ## Inputs
@@ -79,6 +82,10 @@ The action supports the following inputs:
 - `release_status`  
   Release status of the app. Available options: `draft`, `completed`, `halted`, `inProgress`.  
   **Required:** *true*
+
+- `release_name`  
+  Optional release name.  
+  **Required:** *false*
 
 ## Outputs
 

@@ -24,6 +24,9 @@ inputs:
     description: 'Release status (e.g., draft, completed)'
     required: true
     default: 'draft'
+  release_name:
+    description: 'Release name'
+    required: false
 
 runs:
   using: 'composite'
@@ -95,13 +98,17 @@ runs:
         ).execute()
         version_code = aab_upload_response['versionCode']
 
+        release_config = {
+            'versionCodes': [version_code],
+            'status': "${{ inputs.release_status }}"
+        }
+          
+        release_name = "${{ inputs.release_name }}"
+        if release_name:
+            release_config['name'] = release_name
+          
         track_config = {
-            'releases': [
-                {
-                    'versionCodes': [version_code],
-                    'status': "${{ inputs.release_status }}"
-                }
-            ]
+            'releases': [release_config]
         }
         track_update_response = androidpublisher.edits().tracks().update(
             editId=edit_id,
