@@ -17,7 +17,7 @@ This action allows you to automatically upload an Android App Bundle to the Goog
 ```yaml
 - name: Upload Android App Bundle to Google Play Store
   id: upload_aab
-  uses: KevinRohn/github-action-upload-play-store@v1.0.0
+  uses: DreamakerDimas/github-action-upload-play-store@v1.0.0
   with:
     service_account_json: ${{ secrets.SERVICE_ACCOUNT_JSON }}
     package_name: "com.example.myapp"
@@ -34,7 +34,7 @@ This action allows you to automatically upload an Android App Bundle to the Goog
 ```yaml
 - name: Upload .aab to Internal Track
   id: upload_internal
-  uses: KevinRohn/github-action-upload-play-store@v1.0.0
+  uses: DreamakerDimas/github-action-upload-play-store@v1.0.0
   with:
     service_account_json: ${{ secrets.SERVICE_ACCOUNT_JSON }}
     package_name: "com.example.myapp"
@@ -49,7 +49,7 @@ This action allows you to automatically upload an Android App Bundle to the Goog
 ```yaml
 - name: Upload .aab to Production Track
   id: upload_production
-  uses: KevinRohn/github-action-upload-play-store@v1.0.0
+  uses: DreamakerDimas/github-action-upload-play-store@v1.0.0
   with:
     service_account_json: ${{ secrets.SERVICE_ACCOUNT_JSON }}
     package_name: "com.example.myapp"
